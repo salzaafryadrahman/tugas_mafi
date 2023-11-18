@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upgred latihan 6</title>
+</head>
+<body>
+    <h1>Upgrade Latihan 6 (yang hanya operasi tambah) dengan operasi kurang, kali, bagi, dan modulus. Tidak ada video tutorial, silahkan kalian berkreasi dengan coding! Happy Challenge!</h1>
+    <form id="calculator">
+        <label for="inputA">Input A:</label>
+        <input type="number" id="inputA" name="inputA" required>
+        
+        <label for="operation">Operasi:</label>
+        <select id="operation" name="operation">
+            <option value="tambah">Tambah (+)</option>
+            <option value="kurang">Kurang (-)</option>
+            <option value="kali">Kali (*)</option>
+            <option value="bagi">Bagi (/)</option>
+            <option value="modulus">Modulus (%)</option>
+        </select>
+        
+        <label for="inputB">Input B:</label>
+        <input type="number" id="inputB" name="inputB" required>
+        
+        <button type="button" id="calculateButton">Hitung</button>
+        
+        <label for="result">Hasil:</label>
+        <span id="result"></span>
+    </form>
+
+    <script>
+        document.getElementById("calculateButton").addEventListener("click", function() {
+            const inputA = parseInt(document.getElementById("inputA").value);
+            const inputB = parseInt(document.getElementById("inputB").value);
+            const operation = document.getElementById("operation").value;
+            let result = 0;
+
+            if (!isNaN(inputA) && !isNaN(inputB)) {
+                if (operation === "tambah") {
+                    result = inputA + inputB;
+                } else if (operation === "kurang") {
+                    result = inputA - inputB;
+                } else if (operation === "kali") {
+                    result = inputA * inputB;
+                } else if (operation === "bagi") {
+                    result = inputA / inputB;
+                } else if (operation === "modulus") {
+                    result = inputA % inputB;
+                }
+
+                document.getElementById("result").textContent = result;
+            } else {
+                document.getElementById("result").textContent = "Masukkan bilangan bulat pada kedua input.";
+            }
+        });
+    </script>
+</body>
+</html>
